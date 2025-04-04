@@ -1,0 +1,1 @@
+# Convierte mensaje a datos útiles
