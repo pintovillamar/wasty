@@ -1,5 +1,11 @@
 # Modelos SQLAlchemy
 
+import sys
+import os
+
+# Add the project root directory to sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from flask import Blueprint, request, jsonify
 from flask_cors import CORS, cross_origin
 from werkzeug import exceptions
@@ -11,6 +17,7 @@ from datetime import datetime
 from database import db, ma
 
 class Zone(db.Model):
+    __tablename__ = 'zone'
     zone_id = db.Column(db.Integer, primary_key=True)
     zone_name = db.Column(db.String(100), nullable=False)
     zone_description = db.Column(db.String(255), nullable=True)
