@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Add the project root directory to sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from flask import Blueprint, request, jsonify
 from flask_cors import CORS, cross_origin
 from werkzeug import exceptions
@@ -9,6 +15,7 @@ from datetime import datetime
 from database import db, ma
 
 class QR(db.Model):
+    __tablename__ = 'qr'
     qr_id = db.Column(db.Integer, primary_key=True)
     qr_string = db.Column(db.String(100), nullable=False)
     qr_lat = db.Column(db.Float, nullable=False)
