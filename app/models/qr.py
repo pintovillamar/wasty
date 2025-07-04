@@ -22,6 +22,7 @@ class QR(db.Model):
     qr_lon = db.Column(db.Float, nullable=False)
     qr_created = db.Column(db.DateTime, default=datetime.utcnow)
     qr_updated = db.Column(db.DateTime, default=datetime.utcnow)
+    reports = db.relationship('Report', backref='qr', lazy=True)
     
     # Foreign keys
     zone_id = db.Column(db.Integer, db.ForeignKey('zone.zone_id'), nullable=False)
