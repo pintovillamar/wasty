@@ -18,6 +18,7 @@ from database import db, ma
 
 class Zone(db.Model):
     __tablename__ = 'zone'
+    __table_args__ = {'extend_existing': True}
     zone_id = db.Column(db.Integer, primary_key=True)
     zone_name = db.Column(db.String(100), nullable=False)
     zone_description = db.Column(db.String(255), nullable=True)
