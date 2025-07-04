@@ -12,7 +12,7 @@ from database import db, ma
 # Basta con usar el nombre "Report" (como string) en la relación.
 class Reporter(db.Model):
     __tablename__ = 'reporter'
-
+    __table_args__ = {'extend_existing': True}
     reporter_id          = db.Column(db.Integer, primary_key=True)
     reporter_numero      = db.Column(db.String(100), nullable=False, unique=True)
     reporter_id_reporter = db.Column(db.String(100), nullable=False)
